@@ -1,24 +1,25 @@
 const { app, BrowserWindow} = require('electron');
+const path = require("path");
+const {startCAN } = require("./can_receiver");
 
 function createWindow() {
     const win = new BrowserWindow( {
         width: 600,
         height: 400,
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false        }
+            preload: path.join(__dirname, "preload.js")     
+        }
     });
     win.loadFile('index.html');
+
+    startCAN("simulator", (frame) => {
+        console.log("CAN frame primljen:", frame);
+        win.webContents.send("can-frame", frame);
+    });
 }
 
 app.whenReady().then(() => {
     createWindow();
-
-    app.on('activate', () => {
-        if(BrowserWindow.getAllWindows().length == 0) {
-            createWindow();
-        }
-    });
 });
 
 app.on('window-all-closed', () => {

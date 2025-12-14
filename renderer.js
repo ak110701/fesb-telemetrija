@@ -1,20 +1,11 @@
-// renderer.js
+const list = document.getElementById("can-list");
 
-// Funkcija koja generira nasumičan broj između 1 i 100
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 100) + 1;
-}
+window.electronAPI.onFrame((frame) => {
+  const item = document.createElement("li");
 
-const numbersDiv = document.getElementById('numbers');
+  item.textContent = 
+    `ID: ${frame.id} | DATA: [${frame.data.join(", ")}] | TIME: ${frame.timestamp}`;
 
-// Odmah prikažemo prvi broj
-let current = generateRandomNumber();
-numbersDiv.textContent = current;
-console.log('Random broj:', current);
+  list.prepend(item);
+});
 
-// Svakih 1000 ms (1s) generiramo i ispisujemo novi broj
-setInterval(() => {
-  const randomNum = generateRandomNumber();
-  numbersDiv.textContent = randomNum;
-  console.log('Random broj:', randomNum);
-}, 1000);
