@@ -4,8 +4,8 @@ const {startCAN } = require("./can_receiver");
 
 function createWindow() {
     const win = new BrowserWindow( {
-        width: 600,
-        height: 400,
+        width: 900,
+        height: 650,
         webPreferences: {
             preload: path.join(__dirname, "preload.js")     
         }

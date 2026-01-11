@@ -2,12 +2,27 @@
 <html lang="hr">
 <head>
   <meta charset="UTF-8" />
-  <title>FESB Racing Telemetry</title>
+  <title>FESB Racing</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>CAN</h1>
-  <h2>Pristigle CAN poruke:</h2>
-  <ul id="can-list"></ul>
+  <div class="container">
+    <header>
+      <h1>Baterijske ćelije</h1>
+      <p class="hint">Simulacija: 8 ćelija • ID 0x201 (Napon) • ID 0x202 (Temperatura)</p>
+    </header>
+
+    <section class="panel">
+      <h2>Napon (0–30 V)</h2>
+      <div id="voltage-grid" class="grid"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Temperatura (20–70 °C)</h2>
+      <div id="temp-grid" class="grid"></div>
+    </section>
+  </div>
+
   <script src="renderer.js"></script>
 </body>
 </html>

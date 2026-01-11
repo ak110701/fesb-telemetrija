@@ -1,40 +1,71 @@
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0;
   background: #0f172a;
   color: #e5e7eb;
 }
 
-h1 {
-  margin-bottom: 16px;
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px 40px;
 }
 
-#numbers {
-  font-size: 2.5rem;
-  font-weight: bold;
-  padding: 12px 24px;
-  border-radius: 12px;
+header {
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(229, 231, 235, 0.7);
+}
+
+.panel {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #1f2937;
+  background: rgba(17, 24, 39, 0.35);
+  border-radius: 14px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.cell {
   background: #111827;
   border: 1px solid #1f2937;
-  min-width: 120px;
-  text-align: center;
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.subtitle {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-#can-list {
-  color: white;
-  font-size: 14px;
+.cell .label {
+  font-size: 12px;
+  color: rgba(229, 231, 235, 0.7);
 }
 
-#can-list li {
-  margin-bottom: 6px;
+.cell .value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
